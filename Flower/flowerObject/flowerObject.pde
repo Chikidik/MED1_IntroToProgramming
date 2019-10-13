@@ -4,8 +4,6 @@ Flower myFlower3;
 
 void setup() {
   size(1600,1200);
-  background(#43AF76);
-  
   int _r1= 60;
   int _petals=7;
   float _x=width/2;
@@ -14,14 +12,23 @@ void setup() {
   myFlower1 = new Flower(_r1,_petals,_x,_y,_pc);
   myFlower2 = new Flower(_r1,_petals,_x+random(-100,100),_y,_pc);
   myFlower3 = new Flower(_r1,_petals,_x+50,_y,_pc);
-
 //  myFlower2 = new Flower();
 //   myFlower3 = new Flower();
 }
 
 void draw(){
+  background(#43AF76);
   myFlower1.display();
   myFlower2.display();
   myFlower3.display();
-  noLoop();
+  myFlower1.update();
+  myFlower1.boundry();
+  myFlower2.update();
+  myFlower2.boundry();
+  myFlower3.update();
+  myFlower3.boundry();
+}
+
+void mousePressed(){
+  redraw();
 }

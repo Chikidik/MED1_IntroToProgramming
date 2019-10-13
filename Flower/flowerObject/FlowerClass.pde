@@ -1,7 +1,8 @@
 class Flower {
   
  // Variables
- 
+ float ballSpeedX = random(-10,10);
+ float ballSpeedY = random(-10,10);;
  float r;       // radius of the flower petal
  int n_petals;  // number of petals 
  float x;       // x-position of the center of the flower
@@ -31,6 +32,23 @@ void display () {
   }
   fill(200,0,0);
   ellipse(x,y,r*1.2,r*1.2);
+}
+/*
+Moves the ball on both X and Y axis
+*/
+void update(){
+  x = x + ballSpeedX;
+  y = y + ballSpeedY;
+}
+void boundry(){
+  if (x > width ||x <= 0 ){
+        ballSpeedX *=-1;
+        ballSpeedX = ballSpeedX*1.1;
+      }
+      if (y > height|| y <= 0){
+        ballSpeedY *=-1;
+        ballSpeedY = ballSpeedY*1.1;
+      }
 }
 
 }
